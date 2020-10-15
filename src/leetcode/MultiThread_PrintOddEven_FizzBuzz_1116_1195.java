@@ -278,8 +278,7 @@ public class MultiThread_PrintOddEven_FizzBuzz_1116_1195 {
 	    // printFizzBuzz.run() outputs "fizzbuzz".
 	    public void fizzbuzz(Runnable printFizzBuzz) throws InterruptedException {
 	        while(num<=n){ 
-	            synchronized(lock){
-	                
+	            synchronized(lock){	                
 	                if(num%15==0){
 	                    printFizzBuzz.run();
 	                    num++;
@@ -294,8 +293,7 @@ public class MultiThread_PrintOddEven_FizzBuzz_1116_1195 {
 	    // printNumber.accept(x) outputs "x", where x is an integer.
 	    public void number(IntConsumer printNumber) throws InterruptedException {
 	        while(num<=n){    
-	            synchronized(lock){
-	                
+	            synchronized(lock){	                
 	                if(num%3==0 ||num%5==0){
 	                    lock.wait();
 	                }else{

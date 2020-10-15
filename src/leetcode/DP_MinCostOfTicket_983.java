@@ -101,10 +101,11 @@ public class DP_MinCostOfTicket_983 {
         }
         int minCost = Integer.MAX_VALUE;
         for(int i=0; i<costs.length; i++){
-            int expDay = days[idx]+ticketRange[i] -1;
+        	
+            int lastCoveredDay = days[idx]+ticketRange[i] -1;
             
             int newIdx = idx;
-            while(newIdx < days.length && expDay>=days[newIdx]){
+            while(newIdx < days.length && lastCoveredDay>=days[newIdx]){
                 newIdx++;
             }
             minCost = Math.min(minCost, costs[i] + getMinCost(days, newIdx, ticketRange, costs, cache));
