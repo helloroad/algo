@@ -27,7 +27,7 @@ public class AlienDict {
 					parentCount.put(c, 0);
 				}
 				if(!children.containsKey(c)) {
-					children.compute(c,  new ArrayList<>());
+					children.put(c,  new ArrayList<>());
 				}
 			}
 		}
