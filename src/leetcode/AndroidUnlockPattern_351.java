@@ -61,39 +61,25 @@ public class AndroidUnlockPattern_351 {
 		jumps[1][9] = jumps[9][1] = jumps[3][7] = jumps[7][3] = 5;
 		
 		visited = new boolean[10];
-		
 		int count = 0;
-		
 		count += dfs(1, 1, 0, m, n) * 4;
-		
 		count += dfs(2, 1, 0, m, n) * 4;
-		
 		count += dfs(5, 1, 0, m, n);
-		
 		return count;
 		
 	}
 	
 	public int dfs(int key, int len, int cnt, int m, int n) {
-		if(len>=m) {
-			cnt++;
-		}
-		if(len==n) {
-			return cnt;
-		}
-		
+		if(len==n) { return cnt; }
+		if(len>=m) { cnt++; }
 		visited[key] = true;
-		
 		for(int i=1; i<10; i++) {
-			
 			int preReq = jumps[key][i];
 			if(visited[i]==false && (preReq==0 || visited[preReq]==true)) {
 				cnt = dfs(i, len+1, cnt, m, n);
 			}
-			
 		}
 		visited[key] = false;
-		
 		return cnt;
 	}
 	
